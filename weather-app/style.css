@@ -1,0 +1,148 @@
+body {
+  background-image: url(/weather-app-img/opaque-backup.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bolder;
+  margin: 0px;
+}
+
+input {
+  width: 230px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  margin: 100px;
+  font-family: "Roboto", sans-serif;
+  padding: 6px;
+}
+
+footer {
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+}
+
+.degree {
+  font-weight: 300;
+}
+.icon {
+  padding-left: 25px;
+  background: url("https://static.thenounproject.com/png/101791-200.png")
+    no-repeat left;
+  background-size: 20px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.header {
+  margin: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.first-degree {
+  font-size: 50px;
+}
+
+.unit-celcius {
+  text-decoration: none;
+  color: #936b86;
+}
+.unit-farenheit {
+  text-decoration: none;
+  color: #936b86;
+}
+
+.units {
+  position: relative;
+  bottom: 65px;
+  left: 60px;
+}
+
+.col-2 {
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Roboto", sans-serif;
+}
+
+.emojicon {
+  font-size: 20px;
+  color: #936b86;
+  font-weight: bolder;
+}
+
+.days {
+  width: 500px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.outro-text {
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  text-align: center;
+  font-weight: bolder;
+  background: #fceeee;
+  margin: 2px auto;
+  padding: 20px;
+  border: 1px solid #936b86;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.daily-forecast {
+  display: block;
+  margin: 0px auto;
+  border: 1px solid #936b86;
+  border-radius: 6px;
+  background: #b9ebfe;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+}
+
+.hourly-forecast {
+  display: block;
+  margin: 4px auto;
+  border: 1px solid #936b86;
+  border-radius: 6px;
+  background: #936b86;
+  color: #fff;
+  font-size: 11px;
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 48px;
+  color: #b9ebfe;
+}
+
+.btn {
+  width: 230px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  position: fixed;
+  top: 60px;
+  right: 15px;
+  margin: 100px;
+  font-family: "Roboto", sans-serif;
+}

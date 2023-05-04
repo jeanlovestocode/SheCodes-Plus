@@ -1,0 +1,39 @@
+header {
+        text-align: center;
+        font-size: 36px;
+        margin: 40px;
+      }
+
+      section p {
+        text-align: center;
+        line-height: 1.5;
+        font-size: 18px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      header .second-header {
+        color: #8064e9;
+        font-size: 30px;
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #8064e9;
+        border-radius: 25px;
+        color: aliceblue;
+        background: #8064e9;
+        padding: 15px;
+        text-decoration: none;
+        transition: all 200ms ease-in-out;
+      }
+      button:hover {
+        background: aliceblue;
+        color: #8064e9;
+        cursor: pointer;
+      }
+      footer {
+        text-align: center;
+        margin: 30px;
+        border-radius: 10px;
+      }
