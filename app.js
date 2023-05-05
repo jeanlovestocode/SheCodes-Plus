@@ -1,51 +1,38 @@
-let currentTime = new Date();
 
-let date = currentTime.getDate();
-let month = currentTime.getMonth();
-let day = currentTime.getDay();
-let hour = currentTime.getHours();
 
-if (hour < 10) {
-  hour = `0${hour}`;
+
+
+function formatDate (timestamp) {
+
+  let currentTime = new Date (timestamp);
+
+  let hours = currentTime.getHours();
+  let minutes = currentTime.getMinutes();
+  let date = currentTime.getDate();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  day = days[currentTime.getDay()];
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  };
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  };
+
+ 
+
+  return `${day} ${date}, ${hours}:${minutes}`;
+
 }
-let minute = currentTime.getMinutes();
-if (minute < 10) {
-  minute = `0${minute}`;
-}
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-day = days[currentTime.getDay()];
-
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-month = months[currentTime.getMonth()];
-
-function todaysDate() {
-  let today = document.querySelector("#header-date");
-  today.innerHTML = `${day}, ${month} ${date}, ${hour}:${minute}`;
-}
-
-todaysDate();
 
 function showCity(response) {
   document.querySelector("h1").innerHTML = response.data.name;
@@ -62,6 +49,9 @@ function showCity(response) {
   document.querySelector(".low").innerHTML = Math.round(
     response.data.main.temp_min
   );
+
+  let citydate = document.querySelector("#header-date");
+  citydate.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCityName(city) {
