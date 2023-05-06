@@ -55,6 +55,7 @@ footer {
 .unit-celcius {
   text-decoration: none;
   color: #936b86;
+
 }
 .unit-farenheit {
   text-decoration: none;
@@ -68,7 +69,7 @@ footer {
 
 }
 
-#active{
+ .active{
   cursor: default;
   color: #212529;
 }
