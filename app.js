@@ -27,10 +27,13 @@ function formatDate(timestamp) {
 }
 
 function showCity(response) {
+
+
+  celcuisTemp = response.data.main.temp;
+
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector(".first-degree").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector(".first-degree").innerHTML = Math.round(celcuisTemp);
+  ;
 
   document.querySelector(".current-weather").innerHTML =
     response.data.weather[0].description;
@@ -75,6 +78,9 @@ function showCity(response) {
        "src",
        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
      );
+
+      celcuisTemp = Math.round(
+    response.data.main.temp);
 }
 
 
@@ -93,8 +99,7 @@ function forSubmit(event) {
   searchCityName(city);
 }
 
-let formCity = document.querySelector("#city-form");
-formCity.addEventListener("submit", forSubmit);
+
 
 function searchLocation(position) {
   let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
@@ -114,5 +119,35 @@ currentLocationPin.addEventListener("click", myLocation);
 searchCityName("Dubai");
 
 
+function showFarenheitTemp(event){
+  event.preventDefault();
 
+  let farenheitTemp = (celcuisTemp * 9) / 5 + 32; 
 
+  let temperature = document.querySelector(".first-degree");
+
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+
+  temperature.innerHTML = Math.round(farenheitTemp); 
+
+}
+
+function showcelciusTemp (event){
+  event.preventDefault();
+  let temperature = document.querySelector(".first-degree");
+  temperature.innerHTML = Math.round(celcuisTemp);
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+}
+
+let formCity = document.querySelector("#city-form");
+formCity.addEventListener("submit", forSubmit);
+
+let celcuisTemp = null;
+
+let farenheitLink = document.querySelector(".unit-farenheit");
+farenheitLink.addEventListener("click", showFarenheitTemp);
+
+let celciusLink = document.querySelector(".unit-celcius");
+celciusLink.addEventListener("click", showcelciusTemp);

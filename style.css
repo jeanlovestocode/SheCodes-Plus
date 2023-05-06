@@ -65,6 +65,12 @@ footer {
   position: relative;
   bottom: 65px;
   left: 60px;
+
+}
+
+#active{
+  cursor: default;
+  color: #212529;
 }
 
 .col-2 {
