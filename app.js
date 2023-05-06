@@ -1,10 +1,5 @@
-
-
-
-
-function formatDate (timestamp) {
-
-  let currentTime = new Date (timestamp);
+function formatDate(timestamp) {
+  let currentTime = new Date(timestamp);
 
   let hours = currentTime.getHours();
   let minutes = currentTime.getMinutes();
@@ -23,15 +18,12 @@ function formatDate (timestamp) {
 
   if (hours < 10) {
     hours = `0${hours}`;
-  };
+  }
   if (minutes < 10) {
     minutes = `0${minutes}`;
-  };
-
- 
+  }
 
   return `${day} ${date}, ${hours}:${minutes}`;
-
 }
 
 function showCity(response) {
@@ -50,11 +42,45 @@ function showCity(response) {
     response.data.main.temp_min
   );
 
-  let citydate = document.querySelector("#header-date");
-  citydate.innerHTML = formatDate(response.data.dt * 1000);
+  document.querySelector("#header-date").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
+
+   let cardIcon = document.querySelector("#icon");
+   cardIcon.setAttribute(
+     "src",
+     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+   );
+
+   let cardIcon2 = document.querySelector("#icon-two");
+   cardIcon2.setAttribute(
+     "src",
+     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+   );
+
+   let cardIcon3 = document.querySelector("#icon-three");
+    cardIcon3.setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+
+   let cardIcon4 = document.querySelector("#icon-four");
+     cardIcon4.setAttribute(
+       "src",
+       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+     );
+
+   let cardIcon5 = document.querySelector("#icon-five");
+     cardIcon5.setAttribute(
+       "src",
+       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+     );
 }
 
-function searchCityName(city) {
+
+
+
+https: function searchCityName(city) {
   let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
   let cityWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(cityWeatherApi).then(showCity);
@@ -86,3 +112,7 @@ let currentLocationPin = document.querySelector("#current-location-button");
 currentLocationPin.addEventListener("click", myLocation);
 
 searchCityName("Dubai");
+
+
+
+
