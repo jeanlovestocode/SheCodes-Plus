@@ -32,20 +32,28 @@
   </head>
   <body>
     <div class="container">
-      <form id="city-form">
-        <input
-          type="text"
-          id="city-input"
-          class="icon"
-          placeholder="Search for a city or airport"
-        />
-      </form>
+      <div class="row">
+        <div class="col-6">
+           <form id="city-form">
+           <input type="search" placeholder="Search for a city" class="form-control" id="city-input" autocomplete="off">
+        </div>
+      
+       <div class="col-6">
+        <input type="submit" value="Search" class="icon btn">
+
+       </div>
+       
+          
+        
+         </form>
     </div>
+    <br />
+    <br />
     <br />
     <div class="container">
       <div class="row">
         <div class="col-6">
-          <button class="btn" id="current-location-button">
+          <button class="locator" id="current-location-button">
             📍Current Location
           </button>
         </div>
@@ -54,10 +62,10 @@
 
     <div class="container header">
       <h1></h1>
-      <div class="date" >Last updated:
-       <span id="header-date"></span> 
-
-       </div>
+      <div class="date">
+        Last updated:
+        <span id="header-date"></span>
+      </div>
       <br />
       <br />
       <br />
@@ -65,7 +73,9 @@
 
       <h2 class="first-degree"></h2>
 
-      <span class="units"> <a href="#" class="unit-celcius" class="active"> °C </a> | </span>
+      <span class="units">
+        <a href="#" class="unit-celcius" class="active"> °C </a> |
+      </span>
       <span class="units">
         <a href="#" class="unit-farenheit"> °F </a>
       </span>
@@ -89,8 +99,12 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-day">Today</h5>
-            <div class="card-icon" >
-              <img src="http://openweathermap.org/img/wn/04d@2x.png" id="icon" alt="">
+            <div class="card-icon">
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                id="icon"
+                alt=""
+              />
             </div>
             <p class="card-tem" id="first">17°</p>
           </div>
@@ -100,7 +114,11 @@
           <div class="card-body">
             <h5 class="card-day">Saturday</h5>
             <div class="card-icon">
-              <img src="http://openweathermap.org/img/wn/04d@2x.png" id="icon-two" alt="">
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                id="icon-two"
+                alt=""
+              />
             </div>
             <p class="card-tem" id="second">13°</p>
           </div>
@@ -110,7 +128,11 @@
           <div class="card-body">
             <h5 class="card-day">Sunday</h5>
             <div class="card-icon">
-              <img src="http://openweathermap.org/img/wn/04d@2x.png" id="icon-three" alt="">
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                id="icon-three"
+                alt=""
+              />
             </div>
             <p class="card-tem" id="third">11°</p>
           </div>
@@ -120,7 +142,11 @@
           <div class="card-body">
             <h5 class="card-day">Monday</h5>
             <div class="card-icon">
-              <img src="http://openweathermap.org/img/wn/04d@2x.png" id="icon-four" alt="">
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                id="icon-four"
+                alt=""
+              />
             </div>
             <p class="card-tem" id="fourth">9°</p>
           </div>
@@ -130,7 +156,11 @@
           <div class="card-body">
             <h5 class="card-day">Tuesday</h5>
             <div class="card-icon">
-              <img src="http://openweathermap.org/img/wn/04d@2x.png" id="icon-five" alt="">
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                id="icon-five"
+                alt=""
+              />
             </div>
             <p class="card-tem" id="fifth">10°</p>
           </div>
