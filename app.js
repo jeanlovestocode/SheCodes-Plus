@@ -26,15 +26,75 @@ function formatDate(timestamp) {
   return `${day} ${date}, ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date (timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+
+function displayForecast(reponse) {
+ 
+  let forecastDay = reponse.data.daily;
+  let forecastElement = document.querySelector("#day-forecast");
+
+  let forecastHTML = ` <div class="card-group">`;
+  forecastDay.forEach(function(forecastDay, index) {
+    if (index < 5 ) {
+     forecastHTML =
+       forecastHTML +
+       ` 
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-day">${formatDay(forecastDay.dt)}</h5>
+            <div class="card-icon">
+            
+              <img
+                src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+                id="icon"
+                alt=""
+              />
+            </div>
+            <div class = "min-max">
+            <span class="card-tem" id="max">${Math.round(forecastDay.temp.max)}°</span>
+            <span class="card-tem" id="min">${Math.round(forecastDay.temp.min)}°</span>
+            </div>
+
+          </div>
+        </div>`;
+    }
+  });
+
+ 
+
+  
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+   
+  
+
+
+};
+
+
+
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+  
+};
+
 function showCity(response) {
-
-
   celcuisTemp = response.data.main.temp;
 
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector(".first-degree").innerHTML = Math.round(celcuisTemp);
-  ;
-
   document.querySelector(".current-weather").innerHTML =
     response.data.weather[0].description;
 
@@ -49,41 +109,13 @@ function showCity(response) {
     response.data.dt * 1000
   );
 
-   let cardIcon = document.querySelector("#icon");
-   cardIcon.setAttribute(
-     "src",
-     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-   );
 
-   let cardIcon2 = document.querySelector("#icon-two");
-   cardIcon2.setAttribute(
-     "src",
-     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-   );
+ 
 
-   let cardIcon3 = document.querySelector("#icon-three");
-    cardIcon3.setAttribute(
-      "src",
-      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+  celcuisTemp = Math.round(response.data.main.temp);
 
-   let cardIcon4 = document.querySelector("#icon-four");
-     cardIcon4.setAttribute(
-       "src",
-       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-     );
-
-   let cardIcon5 = document.querySelector("#icon-five");
-     cardIcon5.setAttribute(
-       "src",
-       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-     );
-
-      celcuisTemp = Math.round(
-    response.data.main.temp);
+    getForecast(response.data.coord);
 }
-
-
 
 
 https: function searchCityName(city) {
@@ -98,8 +130,6 @@ function forSubmit(event) {
   let city = document.querySelector("#city-input").value;
   searchCityName(city);
 }
-
-
 
 function searchLocation(position) {
   let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
@@ -118,22 +148,20 @@ currentLocationPin.addEventListener("click", myLocation);
 
 searchCityName("Dubai");
 
-
-function showFarenheitTemp(event){
+function showFarenheitTemp(event) {
   event.preventDefault();
 
-  let farenheitTemp = (celcuisTemp * 9) / 5 + 32; 
+  let farenheitTemp = (celcuisTemp * 9) / 5 + 32;
 
   let temperature = document.querySelector(".first-degree");
 
   celciusLink.classList.remove("active");
   farenheitLink.classList.add("active");
 
-  temperature.innerHTML = Math.round(farenheitTemp); 
-
+  temperature.innerHTML = Math.round(farenheitTemp);
 }
 
-function showcelciusTemp (event){
+function showcelciusTemp(event) {
   event.preventDefault();
   let temperature = document.querySelector(".first-degree");
   temperature.innerHTML = Math.round(celcuisTemp);
@@ -145,6 +173,9 @@ let formCity = document.querySelector("#city-form");
 formCity.addEventListener("submit", forSubmit);
 
 let celcuisTemp = null;
+
+
+
 
 let farenheitLink = document.querySelector(".unit-farenheit");
 farenheitLink.addEventListener("click", showFarenheitTemp);

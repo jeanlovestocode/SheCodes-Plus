@@ -147,6 +147,12 @@ section {
   color: #b9ebfe;
 }
 
+#min {
+  font-weight: lighter;
+  color: grey;
+  
+}
+
 .locator{
   width: 230px;
   border: 1px solid #fff;
