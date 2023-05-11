@@ -147,10 +147,13 @@ section {
   color: #b9ebfe;
 }
 
+#max {
+  font-weight: bold;
+}
 #min {
   font-weight: lighter;
   color: grey;
-  
+
 }
 
 .locator{
