@@ -81,6 +81,7 @@ function displayForecast(reponse) {
 
 
 
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
@@ -91,6 +92,7 @@ function getForecast(coordinates) {
 };
 
 function showCity(response) {
+  console.log(response.data);
   celcuisTemp = response.data.main.temp;
 
   document.querySelector("h1").innerHTML = response.data.name;
@@ -109,12 +111,18 @@ function showCity(response) {
     response.data.dt * 1000
   );
 
-
  
+ 
+let wind = Math.round(response.data.wind.speed)
+document.querySelector(".wind-speed").innerHTML = `wind: ${wind} km/h`;
+  
+ 
+
+
 
   celcuisTemp = Math.round(response.data.main.temp);
 
-    getForecast(response.data.coord);
+  getForecast(response.data.coord);
 }
 
 
