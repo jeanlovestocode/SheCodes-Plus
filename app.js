@@ -104,7 +104,7 @@ function displayHourly (response) {
                 src="http://openweathermap.org/img/wn/${
                   hourlyTemp.weather[0].icon
                 }@2x.png"
-                id="icon"
+                id="emojicon"
                 alt=""
               />
             </div>

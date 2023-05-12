@@ -18,7 +18,9 @@ h1 {
  
 
 }
-
+#emojicon{
+  width: 30px;
+}
 
 footer {
   text-align: center;
@@ -82,12 +84,6 @@ footer {
   text-align: center;
   font-weight: bolder;
   font-family: "Roboto", sans-serif;
-}
-
-.emojicon {
-  font-size: 20px;
-  color: #936b86;
-  font-weight: bolder;
 }
 
 .days {

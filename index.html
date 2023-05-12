@@ -131,18 +131,18 @@
     <div class="container">
        <div class = "col-2">
         <div class = "hourly-time"> ${formatTime(hourlyTemp.dt)}</div>
-            <div class="emojicon">
-            
+            <div class="emoji-con">  
               <img
                 src="http://openweathermap.org/img/wn/${
                   hourlyTemp.weather[0].icon
                 }@2x.png"
-                id="icon"
+                id="emojicon"
                 alt=""
               />
             </div>
           <div class="hourly-temp">${Math.round(hourlyTemp.temp)}°</div>
-    </div>`;
+       </div>
+    </div>
    </section>
     <br />
     <br />
