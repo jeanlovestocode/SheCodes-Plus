@@ -97,80 +97,24 @@
 
     <section class="days-of-week" id="day-forecast">
       <div class="card-group">
-        <div class="card">
+         <div class="card">
           <div class="card-body">
-            <h5 class="card-day">Today</h5>
+            <h5 class="card-day">${formatDay(forecastDay.dt)}</h5>
             <div class="card-icon">
+            
               <img
-                src="http://openweathermap.org/img/wn/04d@2x.png"
+                src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                 id="icon"
                 alt=""
               />
             </div>
             <div class = "min-max">
-            <span class="card-tem" id="max">10°</p> </span>
-            <span class="card-tem" id="min">20°</p> </span>
+            <span class="card-tem" id="max">${Math.round(forecastDay.temp.max)}°</span>
+            <span class="card-tem" id="min">${Math.round(forecastDay.temp.min)}°</span>
             </div>
-            
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-day">Saturday</h5>
-            <div class="card-icon">
-              <img
-                src="http://openweathermap.org/img/wn/04d@2x.png"
-                id="icon-two"
-                alt=""
-              />
-            </div>
-            <p class="card-tem" id="second">13°</p>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-day">Sunday</h5>
-            <div class="card-icon">
-              <img
-                src="http://openweathermap.org/img/wn/04d@2x.png"
-                id="icon-three"
-                alt=""
-              />
-            </div>
-            <p class="card-tem" id="third">11°</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-day">Monday</h5>
-            <div class="card-icon">
-              <img
-                src="http://openweathermap.org/img/wn/04d@2x.png"
-                id="icon-four"
-                alt=""
-              />
-            </div>
-            <p class="card-tem" id="fourth">9°</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-day">Tuesday</h5>
-            <div class="card-icon">
-              <img
-                src="http://openweathermap.org/img/wn/04d@2x.png"
-                id="icon-five"
-                alt=""
-              />
-            </div>
-            <p class="card-tem" id="fifth">10°</p>
-          </div>
-        </div>
-      </div>
+        </div>;
     </section>
 
     <br />
@@ -182,51 +126,28 @@
       </button>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-2">Now</div>
-        <div class="col-2">4pm</div>
-        <div class="col-2">5pm</div>
-        <div class="col-2">6pm</div>
-        <div class="col-2">7pm</div>
-        <div class="col-2">8pm</div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row emoji">
-        <div class="col-2 emojicon">
-          <i class="bi bi-cloudy-fill"></i>
-        </div>
-        <div class="col-2 emojicon">
-          <i class="bi bi-cloudy-fill"></i>
-        </div>
-        <div class="col-2 emojicon">
-          <i class="bi bi-cloudy-fill"></i>
-        </div>
-        <div class="col-2 emojicon">
-          <i class="bi bi-cloudy-fill"></i>
-        </div>
-        <div class="col-2 emojicon">
-          <i class="bi bi-cloud-drizzle-fill"></i>
-        </div>
-        <div class="col-2 emojicon">
-          <i class="bi bi-cloud-lightning-rain-fill"></i>
-        </div>
-      </div>
-    </div>
 
+  <section id = hourly-forecast>
     <div class="container">
-      <div class="row">
-        <div class="col-2">17°</div>
-        <div class="col-2">18°</div>
-        <div class="col-2">17°</div>
-        <div class="col-2">17°</div>
-        <div class="col-2">16°</div>
-        <div class="col-2">14°</div>
-      </div>
-    </div>
+       <div class = "col-2">
+        <div class = "hourly-time"> ${formatTime(hourlyTemp.dt)}</div>
+            <div class="emojicon">
+            
+              <img
+                src="http://openweathermap.org/img/wn/${
+                  hourlyTemp.weather[0].icon
+                }@2x.png"
+                id="icon"
+                alt=""
+              />
+            </div>
+          <div class="hourly-temp">${Math.round(hourlyTemp.temp)}°</div>
+    </div>`;
+   </section>
     <br />
     <br />
+
+
 
     <div class="container footer">
       <footer>

@@ -156,6 +156,11 @@ section {
 
 }
 
+#hourly-forecast {
+  font-size: small;
+  
+}
+
 .locator{
   width: 230px;
   border: 1px solid #fff;

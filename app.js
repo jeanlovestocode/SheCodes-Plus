@@ -34,9 +34,9 @@ function formatDay(timestamp) {
 }
 
 
-function displayForecast(reponse) {
- 
-  let forecastDay = reponse.data.daily;
+function displayForecast(response) {
+  
+  let forecastDay = response.data.daily;
   let forecastElement = document.querySelector("#day-forecast");
 
   let forecastHTML = ` <div class="card-group">`;
@@ -78,8 +78,54 @@ function displayForecast(reponse) {
 
 };
 
+function formatTime (timestamp){
+  let hourTime = new Date(timestamp * 1000);
+  let hour = hourTime.getHours();
+  let hours = ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am","10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"];
+  return hours[hour];
+}
+
+function displayHourly (response) {
+  let hourlyTemp =  response.data.hourly;
+  let hourlyElement = document.querySelector("#hourly-forecast");
+
+ let hourlyHTML = `<div class="row">`;
+ hourlyTemp.forEach(function(hourlyTemp, index) {
+  if (index < 6){
+
+  hourlyHTML =
+    hourlyHTML +
+    ` 
+      <div class = "col-2">
+        <div class = "hourly-time"> ${formatTime(hourlyTemp.dt)}</div>
+            <div class="emojicon">
+            
+              <img
+                src="http://openweathermap.org/img/wn/${
+                  hourlyTemp.weather[0].icon
+                }@2x.png"
+                id="icon"
+                alt=""
+              />
+            </div>
+          <div class="hourly-temp">${Math.round(hourlyTemp.temp)}°</div>
+    </div>`;
+ }
+ });
+
+  hourlyHTML = hourlyHTML + `</div>`;
+  hourlyElement.innerHTML = hourlyHTML;
+  console.log(hourlyHTML);
+};
 
 
+function getHourly (coordinates) {
+    let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(displayHourly);
+
+}
 
 
 function getForecast(coordinates) {
@@ -90,6 +136,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
   
 };
+
 
 function showCity(response) {
   console.log(response.data);
@@ -123,6 +170,8 @@ document.querySelector(".wind-speed").innerHTML = `wind: ${wind} km/h`;
   celcuisTemp = Math.round(response.data.main.temp);
 
   getForecast(response.data.coord);
+
+  getHourly(response.data.coord);
 }
 
 
@@ -154,7 +203,7 @@ function myLocation(event) {
 let currentLocationPin = document.querySelector("#current-location-button");
 currentLocationPin.addEventListener("click", myLocation);
 
-searchCityName("Dubai");
+searchCityName("Toronto");
 
 function showFarenheitTemp(event) {
   event.preventDefault();
