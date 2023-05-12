@@ -28,6 +28,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
@@ -67,9 +70,8 @@
         <span id="header-date"></span>
       </div>
       <br />
-      <br />
-      <br />
-      <br />
+
+      
 
       <h2 class="first-degree"></h2>
 
@@ -97,28 +99,12 @@
 
     <section class="days-of-week" id="day-forecast">
       <div class="card-group">
-         <div class="card">
-          <div class="card-body">
-            <h5 class="card-day">${formatDay(forecastDay.dt)}</h5>
-            <div class="card-icon">
-            
-              <img
-                src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
-                id="icon"
-                alt=""
-              />
-            </div>
-            <div class = "min-max">
-            <span class="card-tem" id="max">${Math.round(forecastDay.temp.max)}°</span>
-            <span class="card-tem" id="min">${Math.round(forecastDay.temp.min)}°</span>
-            </div>
-
-          </div>
+        
         </div>;
     </section>
 
     <br />
-    <br />
+  
 
     <div class="container">
       <button class="hourly-forecast">
@@ -127,21 +113,9 @@
     </div>
 
 
-  <section id = hourly-forecast>
+  <section id = "hourly-forecast">
     <div class="container">
-       <div class = "col-2">
-        <div class = "hourly-time"> ${formatTime(hourlyTemp.dt)}</div>
-            <div class="emoji-con">  
-              <img
-                src="http://openweathermap.org/img/wn/${
-                  hourlyTemp.weather[0].icon
-                }@2x.png"
-                id="emojicon"
-                alt=""
-              />
-            </div>
-          <div class="hourly-temp">${Math.round(hourlyTemp.temp)}°</div>
-       </div>
+     
     </div>
    </section>
     <br />
@@ -168,10 +142,10 @@
           </span>
         </small>
         <div>
-          <small class="outro-text"
+          <small 
             >Coded by
-            <a href="https://github.com/jeanlovestocode/SheCodes-Plus/tree/main"
-              >Jean Edem
+            <a href="https://github.com/jeanlovestocode/SheCodes-Plus/tree/main" class="outro-text"
+              >Jean Edem🏄‍♀️
             </a>
           </small>
         </div>
