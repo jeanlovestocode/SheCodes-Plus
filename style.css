@@ -93,6 +93,9 @@ footer {
    font-family: 'Playfair Display', serif;
 }
 
+.wind-speed{
+   font-family: 'Playfair Display', serif;
+}
 
 
 .outro-text {
@@ -171,7 +174,14 @@ section {
   color: grey;
 
 }
-.locator{
+.current-weather {
+  font-family: 'Playfair Display', serif;
+}
+.date{
+  font-family: 'Playfair Display', serif;
+}
+
+/* .locator{
   width: 230px;
   border: 1px solid #fff;
   border-radius: 10px;
@@ -183,11 +193,6 @@ section {
   padding: 4px;
   font-family: 'Playfair Display', serif;
  
-}
+/* } */ 
+ /* i commented out this part in case i ever want to show the current location button  */
 
-.current-weather {
-  font-family: 'Playfair Display', serif;
-}
-.date{
-  font-family: 'Playfair Display', serif;
-}

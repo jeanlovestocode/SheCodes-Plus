@@ -195,14 +195,15 @@ function searchLocation(position) {
   console.log(geoUrl);
 }
 
-function myLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
+// function myLocation(event) {
+//   event.preventDefault();
+//   navigator.geolocation.getCurrentPosition(searchLocation);
+// }
 
-let currentLocationPin = document.querySelector("#current-location-button");
-currentLocationPin.addEventListener("click", myLocation);
-
+// let currentLocationPin = document.querySelector("#current-location-button");
+// currentLocationPin.addEventListener("click", myLocation);
+ //i commented out this part in case i ever want to show the current location button//
+ 
 searchCityName("Toronto");
 
 function showFarenheitTemp(event) {
